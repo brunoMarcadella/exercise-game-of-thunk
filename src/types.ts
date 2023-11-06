@@ -1,8 +1,7 @@
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-export type ReduxState = {
-  isFetching: boolean,
+export type CharacterType = {
   name: string,
   gender: string,
   culture: string,
@@ -12,4 +11,16 @@ export type ReduxState = {
   aliases: string[],
 };
 
+export type ReduxState = {
+  isFetching: boolean,
+  character: CharacterType | null,
+  errorMessage: string | null,
+};
+
 export type Dispatch = ThunkDispatch<ReduxState, null, AnyAction>;
+
+export type ActionType = {
+  type: string,
+  character?: CharacterType,
+  errorMessage?: string,
+};
